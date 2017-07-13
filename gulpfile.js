@@ -9,6 +9,7 @@ const gulp = require('gulp'),
 			connect = require('gulp-connect');
 			childProcess = require('child_process');
 
+
 // Set the path variables
 const base_path = './',
 			src = base_path + '_dev/',
@@ -16,12 +17,14 @@ const base_path = './',
 			paths = {
 					js: src + '/scripts/**/*.js',
 					scss: src +'/styles/**/*.scss',
-					jekyll: ['index.html',
+					jekyll: [
+									'_data/*',
+									'_pages/*',
 									'_posts/*',
 									'_layouts/*',
 									'_includes/*' ,
-									'assets/*',
-									'assets/**/*']
+									'assets/**/*'
+									]
 			};
 
 
@@ -39,6 +42,7 @@ gulp.task('compile-sass', () => {
 		.pipe(gulp.dest('./'));
 });
 
+
 // Rebuild Jekyll
 gulp.task('build-jekyll', (code) => {
 	return childProcess.spawn('jekyll', ['build', '--incremental'], { stdio: 'inherit' }) // Adding incremental reduces build time.
@@ -46,7 +50,8 @@ gulp.task('build-jekyll', (code) => {
 		.on('close', code);
 })
 
-// Setup Server
+
+// Setup server
 gulp.task('server', () => {
 	connect.server({
 		root: ['_site'],
@@ -54,11 +59,13 @@ gulp.task('server', () => {
 	});
 })
 
+
 // Watch files
 gulp.task('watch', () => {
 	gulp.watch(paths.scss, ['compile-sass']);
 	gulp.watch(paths.jekyll, ['build-jekyll']);
 });
 
-// Start Everything with the default task
+
+// Start everything with the default task
 gulp.task('default', [ 'compile-sass', 'build-jekyll', 'server', 'watch' ]);
