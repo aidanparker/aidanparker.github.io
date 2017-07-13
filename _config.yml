@@ -1,7 +1,6 @@
 # Where things are
 source:      .
 destination: ./_site
-# plugins:     ./_plugins
 layouts_dir:     ./_layouts
 data_dir: ./_data
 collections:
@@ -28,6 +27,11 @@ whitelist: []
 
 # Themes
 theme: minima
+
+# Sass
+sass:
+  sass_dir: _sass
+  style: compressed
 
 # Conversion
 markdown:    kramdown
