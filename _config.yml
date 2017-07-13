@@ -29,16 +29,6 @@ unpublished: false
 # Plugins
 whitelist: []
 
-# Themes
-theme: minima
-
-# Assets
-
-# Sass
-sass:
-  sass_dir: _sass
-  style: compressed
-
 # Conversion
 markdown:    kramdown
 highlighter: rouge
