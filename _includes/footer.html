@@ -1,46 +1,22 @@
-<footer class="site-footer">
-
-	<div class="wrapper">
-
-		<h2 class="footer-heading">{{ site.title | escape }}</h2>
-
-		<div class="footer-col-wrapper">
-			<div class="footer-col footer-col-1">
-				<ul class="contact-list">
-					<li>
-						{% if site.author %}
-							{{ site.author | escape }}
-						{% else %}
-							{{ site.title | escape }}
-						{% endif %}
-						</li>
-						{% if site.email %}
-						<li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
-						{% endif %}
-				</ul>
-			</div>
-
-			<div class="footer-col footer-col-2">
-				<ul class="social-media-list">
-					{% if site.data.main.social_github %}
-					<li>
-						{% include icon-github.html username=site.data.main.social_github %}
-					</li>
-					{% endif %}
-
-					{% if site.data.main.social_linkedin %}
-					<li>
-						{% include icon-linkedin.html username=site.data.main.social_linkedin %}
-					</li>
-					{% endif %}
-				</ul>
-			</div>
-
-			<div class="footer-col footer-col-3">
-				<p>{{ site.description | escape }}</p>
-			</div>
-		</div>
-
-	</div>
-
+<footer>
+	<section>
+		<section>
+			{% if site.data.main.email %}
+				<a href="mailto:{{ site.data.main.email }}">
+					{{ site.data.main.email }}
+				</a>
+			{% endif %}
+		</section>
+		<section>
+			© {{ site.data.main.author }} {{ site.time | date: '%Y' }}
+		</section>
+		<section>
+			{% if site.data.main.social_github %}
+				{% include icon-github.html username=site.data.main.social_github %}
+			{% endif %}
+			{% if site.data.main.social_linkedin %}
+				{% include icon-linkedin.html username=site.data.main.social_linkedin %}
+			{% endif %}
+		</section>
+	</section>
 </footer>
