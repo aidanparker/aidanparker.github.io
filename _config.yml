@@ -11,7 +11,11 @@ collections:
 # Handling Reading
 safe:         false
 include:      ['.htaccess', '_pages']
-exclude:      []
+exclude: ['_dev',
+          'gulpfile.js',
+          'node_modules',
+          'package.json']
+
 keep_files:   [".git", ".svn"]
 encoding:     "utf-8"
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
@@ -27,6 +31,8 @@ whitelist: []
 
 # Themes
 theme: minima
+
+# Assets
 
 # Sass
 sass:
